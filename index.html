@@ -4,19 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React from base</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
 
     <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
-    <script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
       const appEl = document.querySelector("#app");
       const root = ReactDOM.createRoot(appEl);
       root.render(
-        React.createElement("h1", null, "Coming from React from Base")
+        <div>
+          <Bottle color="red">Milton</Bottle>
+          <Bottle color="green">Blue Bottle</Bottle>
+          <Bottle color="purple">Steel</Bottle>
+        </div>
       );
-      console.log(appEl);
+
+      // Component
+      function Bottle({ color, children }) {
+        return (
+          <p
+            style={{
+              fontFamily: "sans-serif",
+              fontWeight: "normal",
+              color: color,
+            }}
+          >
+            {children} 🍼
+          </p>
+        );
+      }
+
+      // Card, h1, p, image
     </script>
   </body>
 </html>
